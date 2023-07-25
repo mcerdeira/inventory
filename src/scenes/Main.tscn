@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://fonts/prstartk.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/Slot.tscn" type="PackedScene" id=2]
@@ -12,6 +12,11 @@
 [ext_resource path="res://scenes/ItemO.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/ItemI.tscn" type="PackedScene" id=11]
 [ext_resource path="res://sprites/gun_spr_0.png" type="Texture" id=12]
+[ext_resource path="res://sprites/apple_spr_0.png" type="Texture" id=13]
+[ext_resource path="res://sprites/axe_spr_0.png" type="Texture" id=14]
+[ext_resource path="res://sprites/apple_pie_spr_0.png" type="Texture" id=15]
+[ext_resource path="res://scenes/OutSide.gd" type="Script" id=16]
+[ext_resource path="res://scenes/InventoryArea.gd" type="Script" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -48,88 +53,104 @@ font_data = ExtResource( 1 )
 size = 8
 font_data = ExtResource( 1 )
 
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 113.5, 10 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 96.25, 10 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 27.5, 92 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 30.5, 86.5 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 64, 64 )
+
 [node name="Main" type="Node2D"]
 
-[node name="Inventory" type="Node2D" parent="."]
-position = Vector2( 19, 11 )
+[node name="Slot" parent="." instance=ExtResource( 2 )]
+position = Vector2( 34, 56 )
 
-[node name="Slot" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 15, 45 )
+[node name="Slot2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 66, 56 )
 
-[node name="Slot2" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 47, 45 )
+[node name="Slot3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 98, 56 )
 
-[node name="Slot3" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 79, 45 )
+[node name="Slot4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 130, 56 )
 
-[node name="Slot4" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 111, 45 )
+[node name="Slot5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 34, 88 )
 
-[node name="Slot5" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 15, 77 )
+[node name="Slot6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 66, 88 )
 
-[node name="Slot6" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 47, 77 )
+[node name="Slot7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 98, 88 )
 
-[node name="Slot7" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 79, 77 )
+[node name="Slot8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 130, 88 )
 
-[node name="Slot8" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 111, 77 )
+[node name="Slot9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 34, 120 )
 
-[node name="Slot9" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 15, 109 )
+[node name="Slot10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 66, 120 )
 
-[node name="Slot10" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 47, 109 )
+[node name="Slot11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 98, 120 )
 
-[node name="Slot11" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 79, 109 )
+[node name="Slot12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 130, 120 )
 
-[node name="Slot12" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 111, 109 )
+[node name="Slot13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 34, 152 )
 
-[node name="Slot13" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 15, 141 )
+[node name="Slot14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 66, 152 )
 
-[node name="Slot14" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 47, 141 )
+[node name="Slot15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 98, 152 )
 
-[node name="Slot15" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 79, 141 )
+[node name="Slot16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 130, 152 )
 
-[node name="Slot16" parent="Inventory" instance=ExtResource( 2 )]
-position = Vector2( 111, 141 )
-
-[node name="lbl_title" type="Label" parent="Inventory"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="lbl_title2" type="Label" parent="."]
+margin_left = 19.0
+margin_top = 11.0
+margin_right = 163.0
+margin_bottom = 27.0
 custom_fonts/font = SubResource( 1 )
 text = "INVENTORY"
 
-[node name="Items" type="Node2D" parent="."]
-position = Vector2( 262, 11 )
+[node name="ItemSingle" parent="." instance=ExtResource( 3 )]
+position = Vector2( 277, 59 )
+sprite = ExtResource( 13 )
 
-[node name="ItemSingle" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 15, 48 )
+[node name="ItemL" parent="." instance=ExtResource( 5 )]
+position = Vector2( 487, 124 )
+sprite = ExtResource( 14 )
 
-[node name="ItemL" parent="Items" instance=ExtResource( 5 )]
-position = Vector2( 15, 112 )
-
-[node name="ItemI" parent="Items" instance=ExtResource( 11 )]
-position = Vector2( 79, 96 )
+[node name="ItemI" parent="." instance=ExtResource( 11 )]
+position = Vector2( 341, 107 )
 sprite = ExtResource( 4 )
 
-[node name="ItemI2" parent="Items" instance=ExtResource( 11 )]
-position = Vector2( 175, 96 )
+[node name="ItemI2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 437, 107 )
 sprite = ExtResource( 12 )
 
-[node name="ItemO" parent="Items" instance=ExtResource( 10 )]
-position = Vector2( 127, 64 )
+[node name="ItemO" parent="." instance=ExtResource( 10 )]
+position = Vector2( 389, 75 )
+sprite = ExtResource( 15 )
 
-[node name="lbl_title" type="Label" parent="Items"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="lbl_title" type="Label" parent="."]
+margin_left = 262.0
+margin_top = 11.0
+margin_right = 342.0
+margin_bottom = 27.0
 custom_fonts/font = SubResource( 3 )
 text = "ITEMS"
 
@@ -156,6 +177,7 @@ scale = Vector2( 5, 5 )
 
 [node name="player" type="AnimatedSprite" parent="Quest/player"]
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="eyes" type="AnimatedSprite" parent="Quest/player"]
@@ -188,3 +210,30 @@ custom_fonts/font = SubResource( 8 )
 text = "A regular red apple.
 Restores 1 HP"
 autowrap = true
+
+[node name="OutSide" type="Area2D" parent="."]
+position = Vector2( 68, 30 )
+script = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutSide"]
+position = Vector2( 24.5, -15 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OutSide"]
+position = Vector2( 20.75, 168 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="OutSide"]
+position = Vector2( 130, 72 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="OutSide"]
+position = Vector2( -105, 76 )
+shape = SubResource( 12 )
+
+[node name="InventoryArea" type="Area2D" parent="."]
+script = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea"]
+position = Vector2( 82, 104 )
+shape = SubResource( 13 )

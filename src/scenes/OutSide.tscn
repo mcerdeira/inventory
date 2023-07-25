@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/OutSide.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 66.5, 10 )
+
+[node name="OutSide" type="Area2D"]
+position = Vector2( 68, 30 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 15.5, 0 )
+shape = SubResource( 9 )
