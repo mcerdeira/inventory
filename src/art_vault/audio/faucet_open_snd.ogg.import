@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/faucet_open_snd.ogg-847bacbdf1f07243f9fbff68db2f5557.oggstr"
+
+[deps]
+
+source_file="res://art_vault/audio/faucet_open_snd.ogg"
+dest_files=[ "res://.import/faucet_open_snd.ogg-847bacbdf1f07243f9fbff68db2f5557.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

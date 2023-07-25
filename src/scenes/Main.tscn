@@ -1,0 +1,190 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://fonts/prstartk.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/Slot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ItemSingle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/katana_spr_0.png" type="Texture" id=4]
+[ext_resource path="res://scenes/ItemL.tscn" type="PackedScene" id=5]
+[ext_resource path="res://art_vault/images/player_idle_spr_0.png" type="Texture" id=6]
+[ext_resource path="res://art_vault/images/player_idle_spr_1.png" type="Texture" id=7]
+[ext_resource path="res://art_vault/images/player_eyes_spr_1.png" type="Texture" id=8]
+[ext_resource path="res://art_vault/images/player_eyes_spr_0.png" type="Texture" id=9]
+[ext_resource path="res://scenes/ItemO.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/ItemI.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sprites/gun_spr_0.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 8
+font_data = ExtResource( 1 )
+
+[node name="Main" type="Node2D"]
+
+[node name="Inventory" type="Node2D" parent="."]
+position = Vector2( 19, 11 )
+
+[node name="Slot" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 15, 45 )
+
+[node name="Slot2" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 47, 45 )
+
+[node name="Slot3" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 79, 45 )
+
+[node name="Slot4" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 111, 45 )
+
+[node name="Slot5" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 15, 77 )
+
+[node name="Slot6" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 47, 77 )
+
+[node name="Slot7" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 79, 77 )
+
+[node name="Slot8" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 111, 77 )
+
+[node name="Slot9" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 15, 109 )
+
+[node name="Slot10" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 47, 109 )
+
+[node name="Slot11" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 79, 109 )
+
+[node name="Slot12" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 111, 109 )
+
+[node name="Slot13" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 15, 141 )
+
+[node name="Slot14" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 47, 141 )
+
+[node name="Slot15" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 79, 141 )
+
+[node name="Slot16" parent="Inventory" instance=ExtResource( 2 )]
+position = Vector2( 111, 141 )
+
+[node name="lbl_title" type="Label" parent="Inventory"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+text = "INVENTORY"
+
+[node name="Items" type="Node2D" parent="."]
+position = Vector2( 262, 11 )
+
+[node name="ItemSingle" parent="Items" instance=ExtResource( 3 )]
+position = Vector2( 15, 48 )
+
+[node name="ItemL" parent="Items" instance=ExtResource( 5 )]
+position = Vector2( 15, 112 )
+
+[node name="ItemI" parent="Items" instance=ExtResource( 11 )]
+position = Vector2( 79, 96 )
+sprite = ExtResource( 4 )
+
+[node name="ItemI2" parent="Items" instance=ExtResource( 11 )]
+position = Vector2( 175, 96 )
+sprite = ExtResource( 12 )
+
+[node name="ItemO" parent="Items" instance=ExtResource( 10 )]
+position = Vector2( 127, 64 )
+
+[node name="lbl_title" type="Label" parent="Items"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "ITEMS"
+
+[node name="Quest" type="Node2D" parent="."]
+position = Vector2( 19, 284 )
+
+[node name="lbl_title" type="Label" parent="Quest"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+text = "QUEST"
+
+[node name="btn_start" type="Button" parent="Quest"]
+margin_left = -8.0
+margin_top = 233.0
+margin_right = 109.0
+margin_bottom = 270.0
+custom_fonts/font = SubResource( 4 )
+text = "start"
+
+[node name="player" type="Node2D" parent="Quest"]
+position = Vector2( 31, 87 )
+scale = Vector2( 5, 5 )
+
+[node name="player" type="AnimatedSprite" parent="Quest/player"]
+frames = SubResource( 5 )
+playing = true
+
+[node name="eyes" type="AnimatedSprite" parent="Quest/player"]
+frames = SubResource( 6 )
+speed_scale = 0.5
+playing = true
+
+[node name="Information" type="Node2D" parent="."]
+position = Vector2( 568, 11 )
+
+[node name="lbl_title" type="Label" parent="Information"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 7 )
+text = "DESCRIPTION"
+
+[node name="title" type="Label" parent="Information"]
+margin_top = 32.0
+margin_right = 221.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 8 )
+text = "== APPLE =="
+autowrap = true
+
+[node name="description" type="Label" parent="Information"]
+margin_top = 56.0
+margin_right = 175.0
+margin_bottom = 285.0
+custom_fonts/font = SubResource( 8 )
+text = "A regular red apple.
+Restores 1 HP"
+autowrap = true

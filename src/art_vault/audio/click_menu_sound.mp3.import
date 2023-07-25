@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/click_menu_sound.mp3-d7b1e23a44f1b74b634dc25ec30a078c.mp3str"
+
+[deps]
+
+source_file="res://art_vault/audio/click_menu_sound.mp3"
+dest_files=[ "res://.import/click_menu_sound.mp3-d7b1e23a44f1b74b634dc25ec30a078c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

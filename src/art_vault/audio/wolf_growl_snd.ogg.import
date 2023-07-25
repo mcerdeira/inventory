@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wolf_growl_snd.ogg-ae038516700abd954d61784264e03e83.oggstr"
+
+[deps]
+
+source_file="res://art_vault/audio/wolf_growl_snd.ogg"
+dest_files=[ "res://.import/wolf_growl_snd.ogg-ae038516700abd954d61784264e03e83.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

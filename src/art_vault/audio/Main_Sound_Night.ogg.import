@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Main_Sound_Night.ogg-9448b40ba772747711536d832a25843c.oggstr"
+
+[deps]
+
+source_file="res://art_vault/audio/Main_Sound_Night.ogg"
+dest_files=[ "res://.import/Main_Sound_Night.ogg-9448b40ba772747711536d832a25843c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/D__snd.wav-3aae4d35487a2f9a567e3bc3ad96257d.sample"
+
+[deps]
+
+source_file="res://art_vault/audio/D__snd.wav"
+dest_files=[ "res://.import/D__snd.wav-3aae4d35487a2f9a567e3bc3ad96257d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

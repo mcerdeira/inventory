@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sprites/slot1.png" type="Texture" id=1]
+
+[node name="ItemSlot" type="Node2D"]
+
+[node name="Slot1" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.0980392 )
+texture = ExtResource( 1 )

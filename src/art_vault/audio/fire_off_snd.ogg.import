@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fire_off_snd.ogg-54b694135e944fbbd082ed054260359d.oggstr"
+
+[deps]
+
+source_file="res://art_vault/audio/fire_off_snd.ogg"
+dest_files=[ "res://.import/fire_off_snd.ogg-54b694135e944fbbd082ed054260359d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

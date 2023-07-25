@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cook_snd.ogg-62eece6b3e2ac2224a0db978b10afadb.oggstr"
+
+[deps]
+
+source_file="res://art_vault/audio/cook_snd.ogg"
+dest_files=[ "res://.import/cook_snd.ogg-62eece6b3e2ac2224a0db978b10afadb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

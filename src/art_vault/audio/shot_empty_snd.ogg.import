@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/shot_empty_snd.ogg-b7a9cb8058d25cf3526acec311bc6880.oggstr"
+
+[deps]
+
+source_file="res://art_vault/audio/shot_empty_snd.ogg"
+dest_files=[ "res://.import/shot_empty_snd.ogg-b7a9cb8058d25cf3526acec311bc6880.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

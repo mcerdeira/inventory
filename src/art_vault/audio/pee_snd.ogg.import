@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pee_snd.ogg-aebf0393f3ef90a85e9c8dbefa4bbca8.oggstr"
+
+[deps]
+
+source_file="res://art_vault/audio/pee_snd.ogg"
+dest_files=[ "res://.import/pee_snd.ogg-aebf0393f3ef90a85e9c8dbefa4bbca8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

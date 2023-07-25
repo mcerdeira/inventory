@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bubbles_snd.ogg-bf8228be6c6b3f3d136afec7c8f1ca37.oggstr"
+
+[deps]
+
+source_file="res://art_vault/audio/bubbles_snd.ogg"
+dest_files=[ "res://.import/bubbles_snd.ogg-bf8228be6c6b3f3d136afec7c8f1ca37.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

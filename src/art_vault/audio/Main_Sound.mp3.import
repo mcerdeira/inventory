@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Main_Sound.mp3-34f8f1218be90ed8df7f3c46b791a11b.mp3str"
+
+[deps]
+
+source_file="res://art_vault/audio/Main_Sound.mp3"
+dest_files=[ "res://.import/Main_Sound.mp3-34f8f1218be90ed8df7f3c46b791a11b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

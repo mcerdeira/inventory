@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stone_hit.ogg-149e480ba76b09583e7994fcbc054d81.oggstr"
+
+[deps]
+
+source_file="res://art_vault/audio/stone_hit.ogg"
+dest_files=[ "res://.import/stone_hit.ogg-149e480ba76b09583e7994fcbc054d81.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

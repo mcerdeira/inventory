@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/ItemSlot.tscn" type="PackedScene" id=1]
+
+[node name="ItemT" type="Node2D"]
+
+[node name="ItemSlot" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -32 )
+
+[node name="ItemSlot2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 0 )
+
+[node name="ItemSlot3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -32, 0 )
+
+[node name="ItemSlot4" parent="." instance=ExtResource( 1 )]

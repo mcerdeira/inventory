@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/paper2_sound.ogg-d2d35ac78a1c5b1d4059e4f704b7d9f5.oggstr"
+
+[deps]
+
+source_file="res://art_vault/audio/paper2_sound.ogg"
+dest_files=[ "res://.import/paper2_sound.ogg-d2d35ac78a1c5b1d4059e4f704b7d9f5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

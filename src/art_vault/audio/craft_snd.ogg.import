@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/craft_snd.ogg-4f39fdc7694d9e01ed8306ef91d8d899.oggstr"
+
+[deps]
+
+source_file="res://art_vault/audio/craft_snd.ogg"
+dest_files=[ "res://.import/craft_snd.ogg-4f39fdc7694d9e01ed8306ef91d8d899.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
