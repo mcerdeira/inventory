@@ -1,12 +1,14 @@
 extends Node2D
-export var sprite : Texture
 var original_pos = null
 var in_inventory = false
 var in_invalid = false
+var GRID_STEP = 32
+var item_object = null
 
-func _ready():
+func set_type(item):
+	item_object = item
 	original_pos = position
-	$Sprite.texture = sprite
+	$Sprite.texture = load(item.resource)
 	
 func _physics_process(delta):
 	if Global.dragging_obj == self:
@@ -33,9 +35,16 @@ func _physics_process(delta):
 	
 func _unhandled_input(event):
 	if Global.dragging_obj == self and event is InputEventMouseMotion:
-		position = event.position
-	
+		var mousepos = get_global_mouse_position()
+		position = Vector2(stepify(mousepos.x, GRID_STEP), stepify(mousepos.y, GRID_STEP))
+
+func show_item_data():
+	Global.ItemDataManager.receive_data(item_object)
+
 func _on_Area2D_input_event(viewport, event, shape_idx):
+	if Global.dragging_obj == null and event is InputEventMouseMotion:
+		show_item_data()
+	
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == BUTTON_LEFT:
 			if Global.dragging_obj == null:

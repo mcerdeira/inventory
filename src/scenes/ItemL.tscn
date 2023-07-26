@@ -6,10 +6,10 @@
 [ext_resource path="res://scenes/Area2D.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.5, 47 )
+extents = Vector2( 15, 47 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 22, 16 )
+extents = Vector2( 15, 15 )
 
 [node name="ItemL" type="Node2D"]
 script = ExtResource( 3 )
@@ -33,11 +33,10 @@ position = Vector2( 32, 32 )
 script = ExtResource( 4 )
 
 [node name="collider" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0.5, 0 )
 shape = SubResource( 1 )
 
 [node name="collider2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 26, 32 )
+position = Vector2( 32, 32 )
 shape = SubResource( 2 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

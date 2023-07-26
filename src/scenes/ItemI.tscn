@@ -6,27 +6,28 @@
 [ext_resource path="res://scenes/Area2D.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15, 64 )
+extents = Vector2( 15, 63 )
 
 [node name="ItemI" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
 
 [node name="ItemSlot" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -48 )
+position = Vector2( 0, -64 )
 
 [node name="ItemSlot2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -16 )
+position = Vector2( 0, -32 )
 
 [node name="ItemSlot3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 16 )
 
 [node name="ItemSlot4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 48 )
+position = Vector2( 0, 32 )
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, -16 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
