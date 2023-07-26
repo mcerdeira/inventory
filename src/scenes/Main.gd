@@ -5,6 +5,8 @@ var ItemSingle = preload("res://scenes/ItemSingle.tscn")
 var ItemO = preload("res://scenes/ItemO.tscn")
 var ItemI = preload("res://scenes/ItemI.tscn")
 var ItemL = preload("res://scenes/ItemL.tscn")
+var ItemsmallI = preload("res://scenes/ItemsmallI.tscn")
+var ItemE = preload("res://scenes/ItemE.tscn")
 
 func _ready():
 	var _itm = null
@@ -40,12 +42,28 @@ func _ready():
 			itm_x += 32
 			if max_y < 128:
 				max_y = 128
+				
+		if item.size == "E":
+			_itm = ItemE.instance()
+			itm_y = y_base + 64
+			pos = Vector2(itm_x, itm_y)
+			itm_x += 32
+			if max_y < 64:
+				max_y = 64
 			
 		if item.size == "L":
 			_itm = ItemL.instance()
 			itm_y = y_base + 96
 			pos = Vector2(itm_x, itm_y)
 			itm_x += 64
+			if max_y < 96:
+				max_y = 96
+				
+		if item.size == "smallI":
+			_itm = ItemsmallI.instance()
+			itm_y = y_base + 96
+			pos = Vector2(itm_x, itm_y)
+			itm_x += 32
 			if max_y < 96:
 				max_y = 96
 			

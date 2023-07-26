@@ -16,6 +16,36 @@ var apple = {
 	"resource": "res://sprites/apple_spr_0.png",
 }
 
+var pizza = {
+	"name": "Pizza",
+	"description": "With extra cheese!",
+	"long_description": "Restores 2 HP",
+	"type": "health",
+	"value" : 2,
+	"size": "E",
+	"resource": "res://sprites/pizza_spr_0.png"
+}
+
+var mana_bottle = {
+	"name": "Blue Potion",
+	"description": "A bottle with a blue liquid.",
+	"long_description": "Restores 1 MP",
+	"type": "mana",
+	"value" : 1,
+	"size": "smallI",
+	"resource": "res://sprites/bottle_spr_1.png"
+}
+
+var fish = {
+	"name": "Fish",
+	"description": "A smelly but healthy fish.",
+	"long_description": "Restores 2 HP",
+	"type": "health",
+	"value" : 2,
+	"size": "smallI",
+	"resource": "res://sprites/fish_spr_0.png"
+}
+
 var apple_pie = {
 	"name": "Apple pie",
 	"description": "A tasty pie made using 4 apples.",
@@ -26,6 +56,16 @@ var apple_pie = {
 	"resource": "res://sprites/apple_pie_spr_0.png",
 }
 
+var key = {
+	"name": "Key",
+	"description": "A shiny and misterious key.",
+	"long_description": "Can open a chest.",
+	"type": "special",
+	"value" : 0,
+	"size": "E",
+	"resource": "res://sprites/super_key_spr_0.png"
+}
+
 var katana = {
 	"name": "Katana",
 	"description": "The fiercest weapon from japan.",
@@ -34,6 +74,16 @@ var katana = {
 	"value" : 3,
 	"size": "I",
 	"resource":"res://sprites/katana_spr_0.png"
+}
+
+var bat = {
+	"name": "Bat",
+	"description": "A baseball bat.",
+	"long_description": "Melee weapon that causes 1 dmg.",
+	"type": "melee",
+	"value" : 1,
+	"size": "smallI",
+	"resource":"res://sprites/bat_spr_0.png"
 }
 
 var axe = {
@@ -62,9 +112,15 @@ func _ready():
 	#Inicializar pools
 	HEALTH_ITEMS.push_back(apple)
 	HEALTH_ITEMS.push_back(apple_pie)
+	HEALTH_ITEMS.push_back(mana_bottle)
+	HEALTH_ITEMS.push_back(fish)
+	HEALTH_ITEMS.push_back(pizza)
+	
 	WEAPON_ITEMS.push_back(shotgun)
 	WEAPON_ITEMS.push_back(axe)
 	WEAPON_ITEMS.push_back(katana)
+	WEAPON_ITEMS.push_back(bat)
+	WEAPON_ITEMS.push_back(key)
 	#Create run
 	for i in range(5):
 		var h = pick_random(HEALTH_ITEMS)
