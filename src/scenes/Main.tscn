@@ -1,15 +1,23 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://fonts/prstartk.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/Slot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Information.gd" type="Script" id=3]
+[ext_resource path="res://scenes/path.tscn" type="PackedScene" id=5]
 [ext_resource path="res://art_vault/images/player_idle_spr_0.png" type="Texture" id=6]
 [ext_resource path="res://art_vault/images/player_idle_spr_1.png" type="Texture" id=7]
 [ext_resource path="res://art_vault/images/player_eyes_spr_1.png" type="Texture" id=8]
 [ext_resource path="res://art_vault/images/player_eyes_spr_0.png" type="Texture" id=9]
+[ext_resource path="res://scenes/player.gd" type="Script" id=10]
+[ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/OutSide.gd" type="Script" id=16]
 [ext_resource path="res://scenes/InventoryArea.gd" type="Script" id=17]
 [ext_resource path="res://scenes/Main.gd" type="Script" id=18]
+
+[sub_resource type="Environment" id=19]
+background_mode = 4
+glow_enabled = true
+glow_hdr_threshold = 1.5
 
 [sub_resource type="DynamicFont" id=14]
 font_data = ExtResource( 1 )
@@ -22,22 +30,6 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 1 )
-
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
 
 [sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 1 )
@@ -61,8 +53,60 @@ extents = Vector2( 30.5, 86.5 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 64, 64 )
 
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Shader" id=17]
+code = "shader_type canvas_item;
+
+uniform bool apply = true;
+uniform float amount = 0.1;
+uniform sampler2D offset_texture : hint_white;
+
+void fragment() {
+	vec4 texture_color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	vec4 color = texture_color;
+	
+	if (apply == true) {
+		float adjusted_amount = amount * texture(offset_texture, SCREEN_UV).r / 100.0;
+		color.r = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x + adjusted_amount, SCREEN_UV.y)).r;
+		color.g = texture(SCREEN_TEXTURE, SCREEN_UV).g;
+		color.b = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x - adjusted_amount, SCREEN_UV.y)).b;
+	}
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=18]
+shader = SubResource( 17 )
+shader_param/apply = true
+shader_param/amount = 0.1
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 18 )
+
+[node name="BackGround" parent="." instance=ExtResource( 11 )]
+margin_left = -96.0
+margin_top = -32.0
+margin_right = 896.0
+margin_bottom = 640.0
+mouse_filter = 2
+color = Color( 0.0588235, 0.00392157, 0.0666667, 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 19 )
 
 [node name="Slot" parent="." instance=ExtResource( 2 )]
 position = Vector2( 32, 64 )
@@ -132,8 +176,9 @@ text = "ITEMS"
 position = Vector2( 19, 403 )
 
 [node name="lbl_title" type="Label" parent="Quest"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_top = -11.0
+margin_right = 80.0
+margin_bottom = 5.0
 custom_fonts/font = SubResource( 2 )
 text = "QUEST"
 
@@ -144,19 +189,6 @@ margin_right = 107.0
 margin_bottom = 178.0
 custom_fonts/font = SubResource( 4 )
 text = "start"
-
-[node name="player" type="Node2D" parent="Quest"]
-position = Vector2( 31, 55 )
-scale = Vector2( 3, 3 )
-
-[node name="player" type="AnimatedSprite" parent="Quest/player"]
-frames = SubResource( 5 )
-playing = true
-
-[node name="eyes" type="AnimatedSprite" parent="Quest/player"]
-frames = SubResource( 6 )
-speed_scale = 0.5
-playing = true
 
 [node name="Information" type="Node2D" parent="."]
 position = Vector2( 568, 11 )
@@ -208,3 +240,40 @@ script = ExtResource( 17 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea"]
 position = Vector2( 80, 112 )
 shape = SubResource( 13 )
+
+[node name="HerosPath" type="Node2D" parent="."]
+
+[node name="player" type="Node2D" parent="HerosPath"]
+position = Vector2( 64, 448 )
+scale = Vector2( 3, 3 )
+script = ExtResource( 10 )
+
+[node name="player" type="AnimatedSprite" parent="HerosPath/player"]
+frames = SubResource( 5 )
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="eyes" type="AnimatedSprite" parent="HerosPath/player"]
+frames = SubResource( 6 )
+frame = 1
+speed_scale = 0.5
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="path1" parent="HerosPath" instance=ExtResource( 5 )]
+
+[node name="path2" parent="HerosPath" instance=ExtResource( 5 )]
+position = Vector2( 448, 512 )
+index = 1
+
+[node name="ChromeAbrr" type="ColorRect" parent="."]
+material = SubResource( 18 )
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 928.0
+margin_bottom = 608.0
+mouse_filter = 2

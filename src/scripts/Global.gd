@@ -5,6 +5,8 @@ var WEAPON_ITEMS = []
 var RUN_ITEMS = []
 var SfxMuted = false
 var ItemDataManager = null
+var player_obj = null
+var path = 0
 
 var apple = {
 	"name": "Apple",
