@@ -108,6 +108,45 @@ var shotgun = {
 	"resource":"res://sprites/gun_spr_0.png"
 }
 
+#Milestone items
+var enemy = {
+	"name": "Enemy",
+	"description": "A fierce enemy that attacks back until is dead",
+	"long_description": "HP: 2 DMG: 1",
+	"type": "enemy",
+	"hp" : 2,
+	"dmg": 1,
+	"resource": ["wolf", "bat"]
+}
+
+var treasure = {
+	"name": "Chest",
+	"description": "A chest that may contain something cool.",
+	"long_description": "Consumes 1 Key to be opened.",
+	"type": "milestone",
+	"value" : 1,
+	"resource": "treasure"
+}
+
+var bornfire = {
+	"name": "Bornfire",
+	"description": "A warm bornfire.",
+	"long_description": "Fully restores HP and MP.",
+	"type": "milestone",
+	"value" : 1,
+	"resource": "bornfire"
+}
+
+var boss = {
+	"name": "Boss",
+	"description":  "A fierce enemy that attacks back until is dead",
+	"long_description": "HP: 5 DMG: 2",
+	"type": "boss",
+	"hp" : 5,
+	"dmg": 2,
+	"resource": "boss"
+}
+
 func _ready():
 	#Iniciar random
 	randomize()
