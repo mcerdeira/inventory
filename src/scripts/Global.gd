@@ -65,7 +65,7 @@ var key = {
 	"type": "special",
 	"value" : 0,
 	"size": "E",
-	"resource": "res://sprites/super_key_spr_0.png"
+	"resource": "res://sprites/super_key_spr_0.png",
 }
 
 var katana = {
@@ -75,7 +75,8 @@ var katana = {
 	"type": "melee",
 	"value" : 3,
 	"size": "I",
-	"resource":"res://sprites/katana_spr_0.png"
+	"resource":"res://sprites/katana_spr_0.png",
+	"uses" : 2,
 }
 
 var bat = {
@@ -85,7 +86,8 @@ var bat = {
 	"type": "melee",
 	"value" : 1,
 	"size": "smallI",
-	"resource":"res://sprites/bat_spr_0.png"
+	"resource":"res://sprites/baseballbat_spr_0.png",
+	"uses" : 4,
 }
 
 var axe = {
@@ -95,7 +97,8 @@ var axe = {
 	"type": "melee",
 	"value" : 2,
 	"size": "L",
-	"resource": "res://sprites/axe_spr_0.png"
+	"resource": "res://sprites/axe_spr_0.png",
+	"uses" : 3,
 }
 
 var shotgun = {
@@ -103,9 +106,10 @@ var shotgun = {
 	"description": "A rusty but functional shotgun.",
 	"long_description": "Range weapon that causes 2 dmg.",
 	"type": "range",
-	"value" : 2,
+	"value" : 4,
 	"size": "I",
-	"resource":"res://sprites/gun_spr_0.png"
+	"resource":"res://sprites/gun_spr_0.png",
+	"uses" : 1,
 }
 
 #Milestone items
