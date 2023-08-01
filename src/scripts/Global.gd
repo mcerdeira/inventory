@@ -6,7 +6,10 @@ var RUN_ITEMS = []
 var SfxMuted = false
 var ItemDataManager = null
 var player_obj = null
+var paths = [null,null]
 var path = 0
+var event_window = null
+var QUEST_STARTED = false
 
 var apple = {
 	"name": "Apple",

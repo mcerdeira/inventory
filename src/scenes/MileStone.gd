@@ -2,6 +2,7 @@ extends Node2D
 var index = 0
 var inactive = false
 var type = null
+var anim = ""
 
 func _ready():
 	add_to_group("milestone")
@@ -16,6 +17,8 @@ func set_type(_type):
 		
 	else:
 		$icon.animation = type.resource
+		
+	anim = $icon.animation
 
 func _physics_process(delta):
 	$back.frame = (Global.path == index)

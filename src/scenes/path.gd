@@ -1,6 +1,13 @@
 extends AnimatedSprite
 export var index = 0
+var idx = 0
+var miles_stones = []
+var started = false
+var end = false
+var pause_time = 0
+
 var path = null
+
 var paths = [
 	[],           #7
 	[2, 3, 5, 6], #3
@@ -25,10 +32,40 @@ var path_configurations = [
 	], #4
 ]
 
+func _physics_process(delta):
+	if end:
+		Global.event_window.visible = true
+		pause_time -= 1 * delta
+		if pause_time <= 0:
+			Global.event_window.visible = false
+	
+	if started and !end:
+		pause_time -= 1 * delta
+		if pause_time <= 0:
+			Global.event_window.visible = false
+			if Global.player_obj.position.x < to_global(miles_stones[idx].position).x:
+				Global.player_obj.position.x = lerp(Global.player_obj.position.x, to_global(miles_stones[idx].position).x, 0.1)
+				if abs((Global.player_obj.position.x - to_global(miles_stones[idx].position).x)) <= 0.1:
+					
+					pause_time = 2.5
+					Global.event_window.visible = true
+					Global.event_window.set_type(miles_stones[idx].type, miles_stones[idx].anim)
+					idx += 1
+					if idx > miles_stones.size() - 1:
+						end = true
+
+func start_quest():
+	for _i in self.get_children():
+		if is_instance_valid(_i) and _i.is_in_group("milestone") and _i.inactive == false:
+			miles_stones.push_back(_i)
+			started = true
+
 func _ready():
 	var idx = Global.pick_random([0, 1, 2])
 	path = paths[idx]
 	var path_config = Global.pick_random(path_configurations[idx])
+	
+	Global.paths[index] = self
 	
 	for p in path:
 		var node = get_node("MileStone" + str(p))

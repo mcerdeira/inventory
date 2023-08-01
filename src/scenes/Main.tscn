@@ -1,15 +1,13 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://fonts/prstartk.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/Slot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Information.gd" type="Script" id=3]
 [ext_resource path="res://sprites/heart.png" type="Texture" id=4]
 [ext_resource path="res://scenes/path.tscn" type="PackedScene" id=5]
-[ext_resource path="res://art_vault/images/player_idle_spr_0.png" type="Texture" id=6]
-[ext_resource path="res://art_vault/images/player_idle_spr_1.png" type="Texture" id=7]
-[ext_resource path="res://art_vault/images/player_eyes_spr_1.png" type="Texture" id=8]
-[ext_resource path="res://art_vault/images/player_eyes_spr_0.png" type="Texture" id=9]
-[ext_resource path="res://scenes/player.gd" type="Script" id=10]
+[ext_resource path="res://sprites/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/btn_start.gd" type="Script" id=7]
+[ext_resource path="res://scenes/EventWindow.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=11]
 [ext_resource path="res://sprites/mana.png" type="Texture" id=12]
 [ext_resource path="res://scenes/OutSide.gd" type="Script" id=16]
@@ -54,22 +52,6 @@ extents = Vector2( 30.5, 86.5 )
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 64, 64 )
-
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
 
 [sub_resource type="Shader" id=17]
 code = "shader_type canvas_item;
@@ -178,19 +160,21 @@ text = "ITEMS"
 position = Vector2( 19, 403 )
 
 [node name="lbl_title" type="Label" parent="Quest"]
-margin_top = -11.0
-margin_right = 80.0
-margin_bottom = 5.0
+margin_left = -5.0
+margin_top = -76.0
+margin_right = 75.0
+margin_bottom = -60.0
 custom_fonts/font = SubResource( 2 )
 text = "QUEST"
 
 [node name="btn_start" type="Button" parent="Quest"]
-margin_left = -10.0
-margin_top = 141.0
-margin_right = 107.0
-margin_bottom = 178.0
+margin_left = 646.0
+margin_top = 153.0
+margin_right = 763.0
+margin_bottom = 186.0
 custom_fonts/font = SubResource( 4 )
-text = "start"
+text = "GO!"
+script = ExtResource( 7 )
 
 [node name="Information" type="Node2D" parent="."]
 position = Vector2( 568, 11 )
@@ -245,53 +229,36 @@ shape = SubResource( 13 )
 
 [node name="HerosPath" type="Node2D" parent="."]
 
-[node name="player" type="Node2D" parent="HerosPath"]
-position = Vector2( 64, 448 )
+[node name="player_stats" type="Node2D" parent="HerosPath"]
+position = Vector2( 61, 326 )
 scale = Vector2( 3, 3 )
-script = ExtResource( 10 )
 
-[node name="player" type="AnimatedSprite" parent="HerosPath/player"]
-frames = SubResource( 5 )
-playing = true
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="eyes" type="AnimatedSprite" parent="HerosPath/player"]
-frames = SubResource( 6 )
-frame = 1
-speed_scale = 0.5
-playing = true
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="life" type="Sprite" parent="HerosPath/player"]
+[node name="life" type="Sprite" parent="HerosPath/player_stats"]
 position = Vector2( -5, 13.3333 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )
 
-[node name="life2" type="Sprite" parent="HerosPath/player"]
+[node name="life2" type="Sprite" parent="HerosPath/player_stats"]
 position = Vector2( -7.62939e-06, 13.3333 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )
 
-[node name="life3" type="Sprite" parent="HerosPath/player"]
+[node name="life3" type="Sprite" parent="HerosPath/player_stats"]
 position = Vector2( 4.99999, 13.3333 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )
 
-[node name="mana" type="Sprite" parent="HerosPath/player"]
+[node name="mana" type="Sprite" parent="HerosPath/player_stats"]
 position = Vector2( -5, 17.6667 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 12 )
 
-[node name="mana2" type="Sprite" parent="HerosPath/player"]
+[node name="mana2" type="Sprite" parent="HerosPath/player_stats"]
 position = Vector2( -7.62939e-06, 17.6667 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 12 )
 
-[node name="mana3" type="Sprite" parent="HerosPath/player"]
+[node name="mana3" type="Sprite" parent="HerosPath/player_stats"]
 position = Vector2( 4.99998, 17.6667 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 12 )
@@ -302,6 +269,13 @@ texture = ExtResource( 12 )
 position = Vector2( 448, 512 )
 index = 1
 
+[node name="player" parent="HerosPath" instance=ExtResource( 6 )]
+
+[node name="EventWindow" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( -8, 42 )
+z_index = 4096
+
 [node name="ChromeAbrr" type="ColorRect" parent="."]
 material = SubResource( 18 )
 margin_left = -112.0
@@ -309,3 +283,5 @@ margin_top = -31.0
 margin_right = 880.0
 margin_bottom = 641.0
 mouse_filter = 2
+
+[connection signal="pressed" from="Quest/btn_start" to="Quest/btn_start" method="_on_btn_start_pressed"]
