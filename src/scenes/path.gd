@@ -33,22 +33,11 @@ var path_configurations = [
 ]
 
 func _physics_process(delta):
-	if end:
-		Global.event_window.visible = true
-		pause_time -= 1 * delta
-		if pause_time <= 0:
-			Global.event_window.visible = false
-	
 	if started and !end:
-		pause_time -= 1 * delta
-		if pause_time <= 0:
-			Global.event_window.visible = false
+		if !Global.event_window.visible:
 			if Global.player_obj.position.x < to_global(miles_stones[idx].position).x:
 				Global.player_obj.position.x = lerp(Global.player_obj.position.x, to_global(miles_stones[idx].position).x, 0.1)
 				if abs((Global.player_obj.position.x - to_global(miles_stones[idx].position).x)) <= 0.1:
-					
-					pause_time = 2.5
-					Global.event_window.visible = true
 					Global.event_window.set_type(miles_stones[idx].type, miles_stones[idx].anim)
 					idx += 1
 					if idx > miles_stones.size() - 1:
