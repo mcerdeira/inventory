@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://art_vault/images/player_idle_spr_0.png" type="Texture" id=1]
 [ext_resource path="res://art_vault/images/player_eyes_spr_1.png" type="Texture" id=2]
@@ -19,6 +19,13 @@
 [ext_resource path="res://sprites/fire_spr_2.png" type="Texture" id=17]
 [ext_resource path="res://sprites/fire_spr_1.png" type="Texture" id=18]
 [ext_resource path="res://scenes/EventWindow.gd" type="Script" id=19]
+[ext_resource path="res://art_vault/images/gravestone_spr_0.png" type="Texture" id=20]
+[ext_resource path="res://art_vault/images/gravestone_spr_2.png" type="Texture" id=21]
+[ext_resource path="res://art_vault/images/pine_spr_0.png" type="Texture" id=22]
+[ext_resource path="res://art_vault/images/gravestone_spr_3.png" type="Texture" id=23]
+[ext_resource path="res://art_vault/images/gravestone_spr_4.png" type="Texture" id=24]
+[ext_resource path="res://art_vault/images/gravestone_spr_1.png" type="Texture" id=25]
+[ext_resource path="res://scenes/Backgrounds.gd" type="Script" id=26]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -69,8 +76,8 @@ script = ExtResource( 19 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 116.0
-margin_top = 132.0
-margin_right = 793.0
+margin_top = 134.0
+margin_right = 765.0
 margin_bottom = 507.0
 color = Color( 2, 2, 2, 1 )
 
@@ -81,13 +88,154 @@ margin_right = 793.0
 margin_bottom = 508.0
 color = Color( 0.14902, 0, 0, 1 )
 
+[node name="Backgrounds" type="Node2D" parent="."]
+script = ExtResource( 26 )
+
+[node name="Scene1" type="Node2D" parent="Backgrounds"]
+
+[node name="Layer1" type="Node2D" parent="Backgrounds/Scene1"]
+
+[node name="PineSpr0" type="Sprite" parent="Backgrounds/Scene1/Layer1"]
+modulate = Color( 0, 0, 0, 0.317647 )
+position = Vector2( 197, 291 )
+scale = Vector2( 3.7024, 3.7024 )
+texture = ExtResource( 22 )
+
+[node name="PineSpr1" type="Sprite" parent="Backgrounds/Scene1/Layer1"]
+modulate = Color( 0, 0, 0, 0.317647 )
+position = Vector2( 309, 291 )
+scale = Vector2( 3.7024, 3.7024 )
+texture = ExtResource( 22 )
+
+[node name="PineSpr2" type="Sprite" parent="Backgrounds/Scene1/Layer1"]
+modulate = Color( 0, 0, 0, 0.317647 )
+position = Vector2( 421, 291 )
+scale = Vector2( 3.7024, 3.7024 )
+texture = ExtResource( 22 )
+
+[node name="PineSpr3" type="Sprite" parent="Backgrounds/Scene1/Layer1"]
+modulate = Color( 0, 0, 0, 0.317647 )
+position = Vector2( 549, 291 )
+scale = Vector2( 3.7024, 3.7024 )
+texture = ExtResource( 22 )
+
+[node name="PineSpr4" type="Sprite" parent="Backgrounds/Scene1/Layer1"]
+modulate = Color( 0, 0, 0, 0.317647 )
+position = Vector2( 693, 291 )
+scale = Vector2( 3.7024, 3.7024 )
+texture = ExtResource( 22 )
+
+[node name="Layer2" type="Node2D" parent="Backgrounds/Scene1"]
+
+[node name="PineSpr0" type="Sprite" parent="Backgrounds/Scene1/Layer2"]
+modulate = Color( 0, 0, 0, 0.172549 )
+position = Vector2( 155, 248 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 22 )
+
+[node name="PineSpr1" type="Sprite" parent="Backgrounds/Scene1/Layer2"]
+modulate = Color( 0, 0, 0, 0.172549 )
+position = Vector2( 262, 253 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 22 )
+
+[node name="PineSpr2" type="Sprite" parent="Backgrounds/Scene1/Layer2"]
+modulate = Color( 0, 0, 0, 0.172549 )
+position = Vector2( 376, 246 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 22 )
+
+[node name="PineSpr3" type="Sprite" parent="Backgrounds/Scene1/Layer2"]
+modulate = Color( 0, 0, 0, 0.172549 )
+position = Vector2( 494, 249 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 22 )
+
+[node name="PineSpr4" type="Sprite" parent="Backgrounds/Scene1/Layer2"]
+modulate = Color( 0, 0, 0, 0.172549 )
+position = Vector2( 628, 244 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 22 )
+
+[node name="PineSpr5" type="Sprite" parent="Backgrounds/Scene1/Layer2"]
+modulate = Color( 0, 0, 0, 0.172549 )
+position = Vector2( 756, 248 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 22 )
+
+[node name="Scene2" type="Node2D" parent="Backgrounds"]
+visible = false
+
+[node name="Layer1" type="Node2D" parent="Backgrounds/Scene2"]
+
+[node name="GravestoneSpr0" type="Sprite" parent="Backgrounds/Scene2/Layer1"]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( 175, 350 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 20 )
+
+[node name="GravestoneSpr1" type="Sprite" parent="Backgrounds/Scene2/Layer1"]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( 289, 348 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 24 )
+
+[node name="GravestoneSpr2" type="Sprite" parent="Backgrounds/Scene2/Layer1"]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( 410, 346 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 20 )
+
+[node name="GravestoneSpr3" type="Sprite" parent="Backgrounds/Scene2/Layer1"]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( 732, 349 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 23 )
+
+[node name="GravestoneSpr4" type="Sprite" parent="Backgrounds/Scene2/Layer1"]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( 553, 348 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 24 )
+
+[node name="Layer2" type="Node2D" parent="Backgrounds/Scene2"]
+
+[node name="GravestoneSpr0" type="Sprite" parent="Backgrounds/Scene2/Layer2"]
+modulate = Color( 0, 0, 0, 0.235294 )
+position = Vector2( 230, 294 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 20 )
+
+[node name="GravestoneSpr1" type="Sprite" parent="Backgrounds/Scene2/Layer2"]
+modulate = Color( 0, 0, 0, 0.235294 )
+position = Vector2( 773, 290 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 25 )
+
+[node name="GravestoneSpr2" type="Sprite" parent="Backgrounds/Scene2/Layer2"]
+modulate = Color( 0, 0, 0, 0.235294 )
+position = Vector2( 345, 309 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 21 )
+
+[node name="GravestoneSpr3" type="Sprite" parent="Backgrounds/Scene2/Layer2"]
+modulate = Color( 0, 0, 0, 0.235294 )
+position = Vector2( 641, 310 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 23 )
+
+[node name="GravestoneSpr4" type="Sprite" parent="Backgrounds/Scene2/Layer2"]
+modulate = Color( 0, 0, 0, 0.235294 )
+position = Vector2( 475, 298 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 24 )
+
 [node name="player" type="Node2D" parent="."]
 position = Vector2( 221, 401 )
 scale = Vector2( 8, 8 )
 
 [node name="player" type="AnimatedSprite" parent="player"]
 frames = SubResource( 2 )
-frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -95,7 +243,6 @@ __meta__ = {
 
 [node name="eyes" type="AnimatedSprite" parent="player"]
 frames = SubResource( 3 )
-frame = 1
 speed_scale = 0.5
 playing = true
 __meta__ = {
@@ -107,4 +254,5 @@ position = Vector2( 648, 336 )
 scale = Vector2( 8, 8 )
 frames = SubResource( 4 )
 animation = "bat"
+frame = 2
 playing = true
