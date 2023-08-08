@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://art_vault/images/player_idle_spr_0.png" type="Texture" id=1]
 [ext_resource path="res://art_vault/images/player_eyes_spr_1.png" type="Texture" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://art_vault/images/gravestone_spr_4.png" type="Texture" id=24]
 [ext_resource path="res://art_vault/images/gravestone_spr_1.png" type="Texture" id=25]
 [ext_resource path="res://scenes/Backgrounds.gd" type="Script" id=26]
+[ext_resource path="res://scenes/player_stats.tscn" type="PackedScene" id=27]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -236,6 +237,7 @@ scale = Vector2( 8, 8 )
 
 [node name="player" type="AnimatedSprite" parent="player"]
 frames = SubResource( 2 )
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -253,6 +255,9 @@ __meta__ = {
 position = Vector2( 648, 336 )
 scale = Vector2( 8, 8 )
 frames = SubResource( 4 )
-animation = "bat"
-frame = 2
+animation = "treasure"
 playing = true
+
+[node name="player_stats" parent="." instance=ExtResource( 27 )]
+position = Vector2( 175, 81.0001 )
+scale = Vector2( 6, 6 )

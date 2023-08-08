@@ -10,6 +10,11 @@ var paths = [null,null]
 var path = 0
 var event_window = null
 var QUEST_STARTED = false
+var COINS = 0
+var HP_TOTAL = 3
+var MP_TOTAL = 3
+var HP = HP_TOTAL
+var MP = MP_TOTAL
 
 var apple = {
 	"name": "Apple",
@@ -130,7 +135,7 @@ var treasure = {
 	"name": "Chest",
 	"description": "A chest that may contain something cool.",
 	"long_description": "Consumes 1 Key to be opened.",
-	"type": "milestone",
+	"type": "reward",
 	"value" : 1,
 	"resource": "treasure"
 }
@@ -139,7 +144,7 @@ var bornfire = {
 	"name": "Bornfire",
 	"description": "A warm bornfire.",
 	"long_description": "Fully restores HP and MP.",
-	"type": "milestone",
+	"type": "restauration",
 	"value" : 1,
 	"resource": "bornfire"
 }

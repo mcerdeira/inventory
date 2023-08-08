@@ -1,15 +1,14 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://fonts/prstartk.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/Slot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Information.gd" type="Script" id=3]
-[ext_resource path="res://sprites/heart.png" type="Texture" id=4]
+[ext_resource path="res://scenes/player_stats.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/path.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/btn_start.gd" type="Script" id=7]
 [ext_resource path="res://scenes/EventWindow.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sprites/mana.png" type="Texture" id=12]
 [ext_resource path="res://scenes/OutSide.gd" type="Script" id=16]
 [ext_resource path="res://scenes/InventoryArea.gd" type="Script" id=17]
 [ext_resource path="res://scenes/Main.gd" type="Script" id=18]
@@ -229,39 +228,8 @@ shape = SubResource( 13 )
 
 [node name="HerosPath" type="Node2D" parent="."]
 
-[node name="player_stats" type="Node2D" parent="HerosPath"]
-position = Vector2( 61, 326 )
-scale = Vector2( 3, 3 )
-
-[node name="life" type="Sprite" parent="HerosPath/player_stats"]
-position = Vector2( -5, 13.3333 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
-
-[node name="life2" type="Sprite" parent="HerosPath/player_stats"]
-position = Vector2( -7.62939e-06, 13.3333 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
-
-[node name="life3" type="Sprite" parent="HerosPath/player_stats"]
-position = Vector2( 4.99999, 13.3333 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
-
-[node name="mana" type="Sprite" parent="HerosPath/player_stats"]
-position = Vector2( -5, 17.6667 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 12 )
-
-[node name="mana2" type="Sprite" parent="HerosPath/player_stats"]
-position = Vector2( -7.62939e-06, 17.6667 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 12 )
-
-[node name="mana3" type="Sprite" parent="HerosPath/player_stats"]
-position = Vector2( 4.99998, 17.6667 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 12 )
+[node name="player_stats" parent="HerosPath" instance=ExtResource( 4 )]
+visible = false
 
 [node name="path1" parent="HerosPath" instance=ExtResource( 5 )]
 
@@ -272,6 +240,7 @@ index = 1
 [node name="player" parent="HerosPath" instance=ExtResource( 6 )]
 
 [node name="EventWindow" parent="." instance=ExtResource( 8 )]
+visible = false
 position = Vector2( -69, 47 )
 z_index = 4096
 
