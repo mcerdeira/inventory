@@ -6,6 +6,8 @@ func _ready():
 func receive_data(item):
 	$title.text = "== " + item.name.to_upper() + " =="
 	$description.text = item.description + "\n\nEffect: " + item.long_description
+	if "uses" in item:
+		$description.text += "\n\n" + str(item.uses) + " uses."
 
 func receive_data_milestone(item):
 	$title.text = "== " + item.name.to_upper() + " =="

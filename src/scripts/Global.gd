@@ -113,7 +113,7 @@ var shotgun = {
 	"name": "Shotgun",
 	"description": "A rusty but functional shotgun.",
 	"long_description": "Range weapon that causes 2 dmg.",
-	"type": "range",
+	"type": "melee",
 	"value" : 4,
 	"size": "I",
 	"resource":"res://sprites/gun_spr_0.png",

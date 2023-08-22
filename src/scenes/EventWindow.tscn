@@ -260,7 +260,6 @@ scale = Vector2( 8, 8 )
 
 [node name="player" type="AnimatedSprite" parent="player"]
 frames = SubResource( 2 )
-frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -268,12 +267,19 @@ __meta__ = {
 
 [node name="eyes" type="AnimatedSprite" parent="player"]
 frames = SubResource( 3 )
-frame = 1
 speed_scale = 0.5
 playing = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="weapon" type="Sprite" parent="player"]
+position = Vector2( -9.125, -5.125 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="item" type="Sprite" parent="player"]
+position = Vector2( 13.875, 0.5 )
+scale = Vector2( 0.2, 0.2 )
 
 [node name="icon" type="AnimatedSprite" parent="."]
 position = Vector2( 648, 336 )
