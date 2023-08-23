@@ -15,6 +15,15 @@ var HP_TOTAL = 3
 var MP_TOTAL = 3
 var HP = HP_TOTAL
 var MP = MP_TOTAL
+var GAMEOVER = false
+
+var player = {
+	"name": "You",
+	"description": "A brave adventurer",
+	"long_description": "HP: 3 DMG: 0.5 MP: 3",
+	"type": "player",
+	"dmg": 0.5,
+}
 
 var apple = {
 	"name": "Apple",
@@ -69,8 +78,8 @@ var apple_pie = {
 var key = {
 	"name": "Key",
 	"description": "A shiny and misterious key.",
-	"long_description": "Can open a chest.",
-	"type": "special",
+	"long_description": "Opens 1 chest.",
+	"type": "key",
 	"value" : 0,
 	"size": "E",
 	"resource": "res://sprites/super_key_spr_0.png",
@@ -79,7 +88,7 @@ var key = {
 var katana = {
 	"name": "Katana",
 	"description": "The fiercest weapon from japan.",
-	"long_description": "Melee weapon that causes 3 dmg.",
+	"long_description": "Causes 3 dmg.",
 	"type": "melee",
 	"value" : 3,
 	"size": "I",
@@ -90,7 +99,7 @@ var katana = {
 var bat = {
 	"name": "Bat",
 	"description": "A baseball bat.",
-	"long_description": "Melee weapon that causes 1 dmg.",
+	"long_description": "Causes 1 dmg.",
 	"type": "melee",
 	"value" : 1,
 	"size": "smallI",
@@ -101,7 +110,7 @@ var bat = {
 var axe = {
 	"name": "Axe",
 	"description": "An Axe, made for cutting wood.",
-	"long_description": "Melee weapon that causes 2 dmg.",
+	"long_description": "Causes 2 dmg.",
 	"type": "melee",
 	"value" : 2,
 	"size": "L",
@@ -112,7 +121,7 @@ var axe = {
 var shotgun = {
 	"name": "Shotgun",
 	"description": "A rusty but functional shotgun.",
-	"long_description": "Range weapon that causes 2 dmg.",
+	"long_description": "Causes 2 dmg.",
 	"type": "melee",
 	"value" : 4,
 	"size": "I",
@@ -134,7 +143,7 @@ var enemy = {
 var treasure = {
 	"name": "Chest",
 	"description": "A chest that may contain something cool.",
-	"long_description": "Consumes 1 Key to be opened.",
+	"long_description": "1 key needed to be opened.",
 	"type": "reward",
 	"value" : 1,
 	"resource": "treasure"
@@ -174,6 +183,7 @@ func _ready():
 	WEAPON_ITEMS.push_back(katana)
 	WEAPON_ITEMS.push_back(bat)
 	WEAPON_ITEMS.push_back(key)
+	
 	#Create run
 	for i in range(5):
 		var h = pick_random(HEALTH_ITEMS)

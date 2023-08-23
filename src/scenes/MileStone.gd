@@ -9,7 +9,7 @@ func _ready():
 	index = get_parent().index
 	
 func set_type(_type):
-	type = _type
+	type = _type.duplicate(true)
 	if typeof(type.resource) == TYPE_ARRAY:
 		var an = Global.pick_random(type.resource)
 		$icon.animation = an

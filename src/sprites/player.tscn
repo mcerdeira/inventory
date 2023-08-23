@@ -1,13 +1,19 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://art_vault/images/player_idle_spr_0.png" type="Texture" id=1]
 [ext_resource path="res://art_vault/images/player_eyes_spr_1.png" type="Texture" id=2]
 [ext_resource path="res://art_vault/images/player_eyes_spr_0.png" type="Texture" id=3]
 [ext_resource path="res://art_vault/images/player_idle_spr_1.png" type="Texture" id=4]
 [ext_resource path="res://scenes/player.gd" type="Script" id=5]
+[ext_resource path="res://art_vault/images/player_dead_spr_0.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
@@ -16,11 +22,18 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=7]
 
 [node name="player" type="Node2D"]
 position = Vector2( 56, 433 )
@@ -29,7 +42,6 @@ script = ExtResource( 5 )
 
 [node name="player" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -37,9 +49,15 @@ __meta__ = {
 
 [node name="eyes" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
-frame = 1
 speed_scale = 0.5
 playing = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 7 )
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

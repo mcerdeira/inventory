@@ -45,7 +45,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 	if Global.dragging_obj == null and event is InputEventMouseMotion:
 		show_item_data()
 	
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and !Global.QUEST_STARTED:
 		if event.button_index == BUTTON_LEFT:
 			if Global.dragging_obj == null:
 				for _i in self.get_children():

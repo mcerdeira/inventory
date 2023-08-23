@@ -16,6 +16,7 @@ var paths = [
 var path_configurations = [
 	[
 		[Global.boss, Global.boss, Global.bornfire, Global.boss, Global.treasure, Global.treasure, Global.treasure],
+		[Global.enemy, Global.enemy, Global.bornfire, Global.boss, Global.treasure, Global.enemy, Global.treasure],
 	], #7
 	
 	[
@@ -33,7 +34,7 @@ var path_configurations = [
 ]
 
 func _physics_process(delta):
-	if started and !end:
+	if started and !end and !Global.GAMEOVER:
 		if !Global.event_window.visible:
 			if Global.player_obj.position.x < to_global(miles_stones[idx].position).x:
 				Global.player_obj.position.x = lerp(Global.player_obj.position.x, to_global(miles_stones[idx].position).x, 0.1)
@@ -50,7 +51,12 @@ func start_quest():
 			started = true
 
 func _ready():
-	var idx = Global.pick_random([0, 1, 2])
+	var idx
+	if index == 0:
+		idx = Global.pick_random([0, 2])
+	else:
+		idx = Global.pick_random([1, 2])
+	
 	path = paths[idx]
 	var path_config = Global.pick_random(path_configurations[idx])
 	
@@ -62,7 +68,8 @@ func _ready():
 		node.queue_free()
 		
 	var ee = 0
-	for _i in self.get_children():
+	var childs = self.get_children()
+	for _i in childs:
 		if is_instance_valid(_i) and _i.is_in_group("milestone") and _i.inactive == false:
 			_i.set_type(path_config[ee])
 			ee += 1

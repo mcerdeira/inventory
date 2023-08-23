@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://art_vault/images/player_idle_spr_0.png" type="Texture" id=1]
 [ext_resource path="res://art_vault/images/player_eyes_spr_1.png" type="Texture" id=2]
@@ -30,6 +30,10 @@
 [ext_resource path="res://art_vault/images/player_attack_spr_1.png" type="Texture" id=28]
 [ext_resource path="res://art_vault/images/player_eyes_dead_spr_0.png" type="Texture" id=29]
 [ext_resource path="res://art_vault/images/player_dead_spr_0.png" type="Texture" id=30]
+[ext_resource path="res://fonts/prstartk.ttf" type="DynamicFontData" id=31]
+[ext_resource path="res://art_vault/images/player_hit_spr_0.png" type="Texture" id=32]
+[ext_resource path="res://sprites/heart.png" type="Texture" id=33]
+[ext_resource path="res://scenes/Life.gd" type="Script" id=34]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -46,6 +50,11 @@ animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "hurt",
 "speed": 5.0
 } ]
 
@@ -65,7 +74,16 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
 } ]
+
+[sub_resource type="DynamicFont" id=5]
+size = 8
+font_data = ExtResource( 31 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -94,6 +112,10 @@ animations = [ {
 "name": "wolf",
 "speed": 5.0
 } ]
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+font_data = ExtResource( 31 )
 
 [node name="EventWindow" type="Node2D"]
 script = ExtResource( 19 )
@@ -260,6 +282,7 @@ scale = Vector2( 8, 8 )
 
 [node name="player" type="AnimatedSprite" parent="player"]
 frames = SubResource( 2 )
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -267,6 +290,7 @@ __meta__ = {
 
 [node name="eyes" type="AnimatedSprite" parent="player"]
 frames = SubResource( 3 )
+frame = 1
 speed_scale = 0.5
 playing = true
 __meta__ = {
@@ -281,12 +305,60 @@ scale = Vector2( 0.2, 0.2 )
 position = Vector2( 13.875, 0.5 )
 scale = Vector2( 0.2, 0.2 )
 
+[node name="lbl_health" type="Label" parent="player"]
+margin_left = -19.25
+margin_top = -18.5
+margin_right = 18.75
+margin_bottom = -9.5
+custom_fonts/font = SubResource( 5 )
+text = "REST!"
+align = 1
+
 [node name="icon" type="AnimatedSprite" parent="."]
 position = Vector2( 648, 336 )
 scale = Vector2( 8, 8 )
 frames = SubResource( 4 )
 animation = "treasure"
 playing = true
+
+[node name="Life" type="Node2D" parent="icon"]
+visible = false
+scale = Vector2( 1, 1 )
+script = ExtResource( 34 )
+
+[node name="life1" type="Sprite" parent="icon/Life"]
+position = Vector2( -13, 18.75 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 33 )
+
+[node name="life2" type="Sprite" parent="icon/Life"]
+position = Vector2( -8, 18.75 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 33 )
+
+[node name="life3" type="Sprite" parent="icon/Life"]
+position = Vector2( -3, 18.75 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 33 )
+
+[node name="life4" type="Sprite" parent="icon/Life"]
+position = Vector2( 2, 18.75 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 33 )
+
+[node name="life5" type="Sprite" parent="icon/Life"]
+position = Vector2( 7, 18.75 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 33 )
+
+[node name="lbl_enemy" type="Label" parent="."]
+margin_left = 399.0
+margin_top = 156.0
+margin_right = 882.0
+margin_bottom = 220.0
+custom_fonts/font = SubResource( 6 )
+text = "+1 HP"
+align = 1
 
 [node name="player_stats" parent="." instance=ExtResource( 27 )]
 position = Vector2( 175, 81.0001 )
