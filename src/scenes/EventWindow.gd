@@ -1,7 +1,7 @@
 extends Node2D
 var type = ""
 var anim = ""
-var pausetime = 1.5
+var pausetime = 0.7
 var back = ["woods", "graveyard"]
 var turn_list = []
 var enemy_obj = null
@@ -23,11 +23,13 @@ func do_action():
 	var turn = turn_list.pop_front()
 	if turn:
 		do_turn(turn)
-		pausetime = 0.5
+		pausetime = 1.5
 	else:
 		visible = false
 			
 func do_turn(turn):
+	$player/player.material.set_shader_param("line_thickness", 0)
+	$icon.material.set_shader_param("line_thickness", 0)
 	$player/lbl_health.text = ""
 	$lbl_enemy.text = ""
 	$player/player.animation = "default"
@@ -42,21 +44,19 @@ func do_turn(turn):
 			$lbl_enemy.text = "+10 GOLD"
 			$lbl_enemy.add_color_override("font_color", Color8(255, 255, 0, 255))
 		else:
-			$lbl_enemy.text = "+10 GOLD"
+			$lbl_enemy.text = "NOPE"
 			
-		yield(get_tree().create_timer(1), "timeout")
 	elif turn == "heal":
 		Global.HP = Global.HP_TOTAL
 		Global.MP = Global.MP_TOTAL
 		$player/lbl_health.text = "REST!"
-		yield(get_tree().create_timer(1), "timeout")
 	elif turn == "attack":
 		var attk = get_next_weapon()
 		enemy_obj.hp -= attk
 		$icon/Life.set_life(enemy_obj.hp)
 		$lbl_enemy.text = "-" + str(attk) + " HP"
 		$lbl_enemy.add_color_override("font_color", Color8(255, 0, 0, 255))
-		yield(get_tree().create_timer(1), "timeout")
+		$player/player.material.set_shader_param("line_thickness", 1)
 		if enemy_obj.hp <= 0:
 			turn_list = []
 	elif turn == "hurt":
@@ -66,6 +66,7 @@ func do_turn(turn):
 		$player/lbl_health.add_color_override("font_color", Color8(255, 0, 0, 255))
 		$player/player.animation = "hurt"
 		$player/eyes.animation = "hurt"
+		$icon.material.set_shader_param("line_thickness", 1)
 		yield(get_tree().create_timer(1), "timeout")
 		if Global.HP <= 0:
 			var heal = get_next_heal_item()
@@ -78,7 +79,6 @@ func do_turn(turn):
 				$player/lbl_health.text = "+" + str(heal.value) + " HP"
 				$player/lbl_health.add_color_override("font_color", Color8(0, 255, 0, 255))
 				$player/item.texture = load(heal.resource)
-				yield(get_tree().create_timer(1), "timeout")
 				Global.HP = min(heal.value, Global.HP_TOTAL)
 				
 func search_item_by_type(type):
